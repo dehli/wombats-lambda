@@ -1,15 +1,23 @@
 (ns wombats
   (:require [uswitch.lambada.core :refer [deflambdafn]]
             [clojure.data.json :as json]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [base64-clj.core :as b64]))
+
+(defn- decode-bot
+  [content]
+  (let [base64-string (clojure.string/replace content #"\n" "")]
+    (b64/decode base64-string "UTF-8")))
 
 (defn handle-event
   [event time-left]
-  (let [arena (get event "state")
-        code-string (get event "code")]
-
+  (let [state (get event "state")
+        code-string (decode-bot (get event "code"))]
     ;; Call the wombat's code, passing in appropriate args
-    ((load-string code-string) time-left arena)))
+    (prn code-string)
+    (try
+      ((load-string code-string) state) ;; add time-left later
+      (catch Exception e))))
 
 (deflambdafn wombats.Handler
   [in out ctx]
