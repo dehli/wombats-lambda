@@ -13,5 +13,5 @@ in a Wombat that never moves.
 In order to generate the `.jar` file for this lamda function, you must
 execute `lein uberjar` from within the `clojure` folder.
 
-Then you must upload `/clojure/target/wombats-lambda-clojure-VERSION-standalon.jar`
+Then you must upload `/clojure/target/wombats-lambda-clojure-VERSION-standalone.jar`
 to AWS Lambda.
