@@ -8,9 +8,8 @@
   (let [state (get event "state")
         code-string (get event "code")]
     ;; Call the wombat's code, passing in appropriate args
-    (prn code-string)
     (try
-      ((load-string code-string) state) ;; add time-left later
+      ((load-string code-string) state time-left)
       (catch Exception e))))
 
 (deflambdafn wombats.Handler
