@@ -6,7 +6,7 @@ in a Wombat that never moves.
 ```clojure
 (fn wombat
   "the bot takes in two arguments, and returns an action"
-  [time-left arena]
+  [state time-left]
   nil)
 ```
 
