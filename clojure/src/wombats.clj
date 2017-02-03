@@ -7,8 +7,11 @@
   [event time-left]
   ;; Call the passed in code with the appropriate args
   (try
-    ((load-string (:code event)) (:state event) time-left)
-    (catch Exception e)))
+    {:response ((load-string (:code event)) (:state event) time-left)
+     :error nil}
+    (catch Exception e
+      {:response nil
+       :error e})))
 
 (deflambdafn wombats.Handler
   [in out ctx]
