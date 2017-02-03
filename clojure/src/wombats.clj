@@ -14,7 +14,8 @@
        :error nil})
     (catch Exception e
       {:response nil
-       :error e})))
+       :error {:message (.getMessage e)
+               :stackTrace (map str (.getStackTrace e))}})))
 
 (deflambdafn wombats.Handler
   [in out ctx]
