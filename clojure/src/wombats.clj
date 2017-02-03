@@ -1,7 +1,6 @@
 (ns wombats
   (:require [uswitch.lambada.core :refer [deflambdafn]]
-            ;;[cheshire.core :as cheshire]
-            [clojure.data.json :as json]
+            [cheshire.core :as cheshire]
             [clojure.java.io :as io]))
 
 (defn handle-event
@@ -14,10 +13,8 @@
 (deflambdafn wombats.Handler
   [in out ctx]
   (let [time-left (fn [] (.getRemainingTimeInMillis ctx))
-        event (json/read (io/reader in) :key-fn keyword)
-        ;;event (cheshire/parse-stream (io/reader in) true)
+        event (cheshire/parse-stream (io/reader in) true)
         res (handle-event event time-left)]
 
     (with-open [w (io/writer out)]
-      ;;(cheshire/generate-stream res w))))
-      (json/write res w))))
+      (cheshire/generate-stream res w))))
