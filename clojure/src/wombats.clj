@@ -7,8 +7,11 @@
   [event time-left]
   ;; Call the passed in code with the appropriate args
   (try
-    {:response ((load-string (:code event)) (:state event) time-left)
-     :error nil}
+    (let [user-defined-code (load-string (:code event))
+          state (:state event)
+          user-response (user-defined-code state time-left)]
+      {:response user-response
+       :error nil})
     (catch Exception e
       {:response nil
        :error e})))
