@@ -11,5 +11,5 @@ An example bot written in JavaScript is:
     state: {
         hello: "world"
     }
-});
+}));
 ```
