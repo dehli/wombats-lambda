@@ -1,7 +1,7 @@
 An example bot written in JavaScript is:
 
 ```
-((time_left, state) => ({
+((state, time_left) => ({
     command: {
         action: "turn",
         metadata: {
