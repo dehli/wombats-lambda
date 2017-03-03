@@ -1,10 +1,22 @@
-exports.handler = (event, context) => {
+const handleEvent = (event, time_left) => {
+    try {
+        const user_defined_code = eval(event.code);
+        const response = user_defined_code(event.state, time_left);
+        return {
+            response,
+            error: null
+        };
+    }
+    catch(err) {
+        return {
+            response: null,
+            error: err.toString()
+        };
+    }
+};
+
+exports.handler = (event, context, callback) => {
     // This is used to know how much time you have left for your code
-    const { getRemainingTimeInMillis: time_left } = context;
-
-    const wombatFn = eval(event.code);
-    const result = wombatFn(time_left, event.state);
-
-    const { succeed } = context;
-    succeed(result);
+    const time_left = context.getRemainingTimeInMillis;
+    callback(null, handleEvent(event, time_left));
 };
