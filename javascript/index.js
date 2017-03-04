@@ -10,7 +10,10 @@ const handleEvent = (event, time_left) => {
     catch(err) {
         return {
             response: null,
-            error: err.toString()
+            error: {
+                message: err.toString(),
+                stackTrace: [err.stack]
+            }
         };
     }
 };
