@@ -1,4 +1,5 @@
 """ This is the Lambda handler for the Wombat's python environment. """
+import sys, traceback
 
 def handle_event(event, time_left):
     """ Handles the execution of a Wombat's code"""
@@ -13,9 +14,13 @@ def handle_event(event, time_left):
         }
 
     except Exception as e:
+        exc_type, exc_value, exc_traceback = sys.exc_info()
         return {
             'response': None,
-            'error': str(e)
+            'error': {
+                'message': str(e),
+                'stackTrace': traceback.format_exception(exc_type, exc_value, exc_traceback)
+            }
         }
 
 def lambda_handler(event, context):
