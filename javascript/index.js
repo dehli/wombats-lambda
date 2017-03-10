@@ -1,4 +1,10 @@
 const handleEvent = (event, time_left) => {
+    // Block some Node.js specific stuff
+    const process = {
+        env: 'These aren\'t the keys you\'re looking for.'
+    };
+    const require = null;
+    
     try {
         const user_defined_code = eval(event.code);
         const response = user_defined_code(event.state, time_left);
