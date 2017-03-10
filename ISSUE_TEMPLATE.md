@@ -7,8 +7,6 @@
 ## ISSUE DESCRIPTION
 **- What version of the project are you using?**
 
-**- What browser and its version are you using?**
-
 **- What did you do? (Steps to Replicate Issue)**
 
 **- What did you expect to see?**
