@@ -1,8 +1,16 @@
 """ This is the Lambda handler for the Wombat's python environment. """
 import sys, traceback
+import os
 
 def handle_event(event, time_left):
     """ Handles the execution of a Wombat's code"""
+
+    # Remove sensitive environment variables
+    keys = ['AWS_SESSION_TOKEN', 'AWS_SECURITY_TOKEN', 'AWS_SECRET_ACCESS_KEY', 'AWS_ACCESS_KEY_ID']
+    for key in keys:
+        if key in os.environ:
+            del os.environ[key]
+
     try:
         # The python function must be called "wombat"
         exec(event['code'])
