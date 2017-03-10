@@ -18,4 +18,4 @@ list will be growing soon.
 
 
 ## Contributing? Issues? Features? Curiosity?
-[Learn how to contribute here.](https://github.com/willowtreeapps/wombats-lambda/blob/master/CONTRIBUTING.md)
+[Learn how to contribute here.](https://github.com/willowtreeapps/wombats-lambda/blob/develop/CONTRIBUTING.md)
