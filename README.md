@@ -15,3 +15,7 @@ with no action.
 
 Currently you can only submit code written in Clojure, however that
 list will be growing soon.
+
+
+## Contributing? Issues? Features? Curiosity?
+[Learn how to contribute here.](https://github.com/willowtreeapps/wombats-lambda/blob/master/CONTRIBUTING.md)
