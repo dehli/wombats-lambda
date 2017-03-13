@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-## Alpha1
+## Develop
 **Enhancements**
 *  Lambda functions execute bot code in JavaScript, Clojure, and Python. 
 
