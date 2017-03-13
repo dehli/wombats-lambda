@@ -2,12 +2,14 @@
 import sys, traceback
 import os
 
+envs = ['AWS_ACCESS_KEY', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', \
+        'AWS_SECRET_KEY', 'AWS_SECURITY_TOKEN', 'AWS_SESSION_TOKEN']
+
 def handle_event(event, time_left):
     """ Handles the execution of a Wombat's code"""
 
     # Remove sensitive environment variables
-    keys = ['AWS_SESSION_TOKEN', 'AWS_SECURITY_TOKEN', 'AWS_SECRET_ACCESS_KEY', 'AWS_ACCESS_KEY_ID']
-    for key in keys:
+    for key in envs:
         if key in os.environ:
             del os.environ[key]
 
