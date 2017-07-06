@@ -13,7 +13,7 @@ The bot's code must return an action within 3 seconds. If
 it doesn't, the Lambda function will timeout and resolve
 with no action.
 
-Currently you can only submit code written in Clojure, however that
+Currently you can only submit code written in Clojure, JavaScript, or Python, however that
 list will be growing soon.
 
 
